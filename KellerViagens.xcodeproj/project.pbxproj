@@ -13,6 +13,8 @@
 		D8C2C49F290C0355003E5C2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8C2C49D290C0355003E5C2C /* Main.storyboard */; };
 		D8C2C4A1290C0356003E5C2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8C2C4A0290C0356003E5C2C /* Assets.xcassets */; };
 		D8C2C4A4290C0356003E5C2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8C2C4A2290C0356003E5C2C /* LaunchScreen.storyboard */; };
+		D8C2C4AC290C08B7003E5C2C /* HomeTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8C2C4AB290C08B7003E5C2C /* HomeTableViewHeader.xib */; };
+		D8C2C4AE290C0B49003E5C2C /* HomeTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C2C4AD290C0B49003E5C2C /* HomeTableViewHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		D8C2C4A0290C0356003E5C2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8C2C4A3290C0356003E5C2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8C2C4A5290C0356003E5C2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8C2C4AB290C08B7003E5C2C /* HomeTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewHeader.xib; sourceTree = "<group>"; };
+		D8C2C4AD290C0B49003E5C2C /* HomeTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				D8C2C497290C0355003E5C2C /* AppDelegate.swift */,
 				D8C2C499290C0355003E5C2C /* SceneDelegate.swift */,
 				D8C2C49B290C0355003E5C2C /* ViewController.swift */,
+				D8C2C4AB290C08B7003E5C2C /* HomeTableViewHeader.xib */,
+				D8C2C4AD290C0B49003E5C2C /* HomeTableViewHeader.swift */,
 				D8C2C49D290C0355003E5C2C /* Main.storyboard */,
 				D8C2C4A0290C0356003E5C2C /* Assets.xcassets */,
 				D8C2C4A2290C0356003E5C2C /* LaunchScreen.storyboard */,
@@ -126,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8C2C4A4290C0356003E5C2C /* LaunchScreen.storyboard in Resources */,
+				D8C2C4AC290C08B7003E5C2C /* HomeTableViewHeader.xib in Resources */,
 				D8C2C4A1290C0356003E5C2C /* Assets.xcassets in Resources */,
 				D8C2C49F290C0355003E5C2C /* Main.storyboard in Resources */,
 			);
@@ -139,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8C2C49C290C0355003E5C2C /* ViewController.swift in Sources */,
+				D8C2C4AE290C0B49003E5C2C /* HomeTableViewHeader.swift in Sources */,
 				D8C2C498290C0355003E5C2C /* AppDelegate.swift in Sources */,
 				D8C2C49A290C0355003E5C2C /* SceneDelegate.swift in Sources */,
 			);
