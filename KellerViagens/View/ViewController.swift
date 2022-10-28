@@ -69,6 +69,6 @@ extension ViewController: UITableViewDelegate {
     
     // retornar o tamanho da celula na table view
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 400
+        return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone ? 400 : 480
     }
 }
