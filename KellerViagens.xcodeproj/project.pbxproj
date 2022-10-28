@@ -60,17 +60,57 @@
 		D8C2C496290C0355003E5C2C /* KellerViagens */ = {
 			isa = PBXGroup;
 			children = (
-				D8C2C497290C0355003E5C2C /* AppDelegate.swift */,
-				D8C2C499290C0355003E5C2C /* SceneDelegate.swift */,
-				D8C2C49B290C0355003E5C2C /* ViewController.swift */,
-				D8C2C4AB290C08B7003E5C2C /* HomeTableViewHeader.xib */,
-				D8C2C4AD290C0B49003E5C2C /* HomeTableViewHeader.swift */,
-				D8C2C49D290C0355003E5C2C /* Main.storyboard */,
+				D8C2C4AF290C228D003E5C2C /* AppDelegate */,
+				D8C2C4B0290C22A3003E5C2C /* Model */,
+				D8C2C4B1290C22BB003E5C2C /* View */,
+				D8C2C4B3290C2311003E5C2C /* ViewModel */,
 				D8C2C4A0290C0356003E5C2C /* Assets.xcassets */,
 				D8C2C4A2290C0356003E5C2C /* LaunchScreen.storyboard */,
 				D8C2C4A5290C0356003E5C2C /* Info.plist */,
 			);
 			path = KellerViagens;
+			sourceTree = "<group>";
+		};
+		D8C2C4AF290C228D003E5C2C /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				D8C2C497290C0355003E5C2C /* AppDelegate.swift */,
+				D8C2C499290C0355003E5C2C /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		D8C2C4B0290C22A3003E5C2C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D8C2C4B1290C22BB003E5C2C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D8C2C49D290C0355003E5C2C /* Main.storyboard */,
+				D8C2C49B290C0355003E5C2C /* ViewController.swift */,
+				D8C2C4B2290C22EE003E5C2C /* Header */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D8C2C4B2290C22EE003E5C2C /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				D8C2C4AB290C08B7003E5C2C /* HomeTableViewHeader.xib */,
+				D8C2C4AD290C0B49003E5C2C /* HomeTableViewHeader.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		D8C2C4B3290C2311003E5C2C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
