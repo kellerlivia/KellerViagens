@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var viagensTableView: UITableView!
     var viagemTableViewCell = "ViagemTableViewCell"
+    var ofertaTableViewCell = "OfertaTableViewCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,7 @@ class ViewController: UIViewController {
     
     func configureTableView() {
         viagensTableView.register(UINib(nibName: viagemTableViewCell, bundle: nil), forCellReuseIdentifier: viagemTableViewCell)
+        viagensTableView.register(UINib(nibName: ofertaTableViewCell, bundle: nil), forCellReuseIdentifier: ofertaTableViewCell)
         viagensTableView.dataSource = self
         viagensTableView.delegate = self
     }
@@ -29,20 +31,31 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return secaoDeViagens?.count ?? 0
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sessaoDeViagens?[section].numeroDeLinhas ?? 0
+        return secaoDeViagens?[section].numeroDeLinhas ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ViagemTableViewCell") as? ViagemTableViewCell else {
-            fatalError("Erro ao criar ViagemTableViewCell")
-        }
         
-        let viewModel = sessaoDeViagens?[indexPath.section]
+        let viewModel = secaoDeViagens?[indexPath.section]
         switch viewModel?.tipo {
         case .destaques:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ViagemTableViewCell") as? ViagemTableViewCell else {
+                fatalError("Erro ao criar ViagemTableViewCell")
+            }
             cell.configureCell(viewModel?.viagens[indexPath.row])
             return cell
+            
+        case .ofertas:
+            guard let cellOferta = tableView.dequeueReusableCell(withIdentifier: "OfertaTableViewCell") as? OfertaTableViewCell else {
+                fatalError("Erro ao criar OfertaTableViewCell")
+            }
+            return cellOferta
+            
         default:
             return UITableViewCell()
         }
@@ -54,17 +67,22 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let home: String = "HomeTableViewHeader"
-        let headerView = Bundle.main.loadNibNamed(home, owner: self, options: nil)?.first as? HomeTableViewHeader
-        headerView?.configureView()
-        
-        return headerView
+        if section == 0 {
+            let home: String = "HomeTableViewHeader"
+            let headerView = Bundle.main.loadNibNamed(home, owner: self, options: nil)?.first as? HomeTableViewHeader
+            headerView?.configureView()
+            
+            return headerView
+        }
+        return nil
     }
     
     // retornar o tamanho do header
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 300
+        if section == 0 {
+            return 300
+        }
+        return 0
     }
     
     // retornar o tamanho da celula na table view

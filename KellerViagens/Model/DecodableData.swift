@@ -7,7 +7,7 @@
 
 import Foundation
 
-let sessaoDeViagens: [ViagemViewModel]? = load("server-response.json")
+let secaoDeViagens: [ViagemViewModel]? = load("server-response.json")
 
 func load(_ filename: String) -> [ViagemViewModel]? {
     let data: Data
@@ -45,6 +45,11 @@ func load(_ filename: String) -> [ViagemViewModel]? {
                 if let destaques = tiposDeViagens?.destaques {
                     let destaqueViewModel = ViagemDestaqueViewModel(destaques)
                     listaViagemViewModel.insert(destaqueViewModel, at: 0)
+                }
+            case .ofertas:
+                if let ofertas = tiposDeViagens?.ofertas {
+                    let ofertaViewModel = ViagemOfertaViewModel(ofertas)
+                    listaViagemViewModel.append(ofertaViewModel)
                 }
             default:
                 break
