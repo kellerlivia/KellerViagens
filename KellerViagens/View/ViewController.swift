@@ -25,6 +25,13 @@ class ViewController: UIViewController {
         viagensTableView.dataSource = self
         viagensTableView.delegate = self
     }
+    
+    func irParaDestalhes(_ viagem: Viagem?) {
+        if let viagemSelecionada = viagem {
+            let detalheController = DetalheViewController.instanciar(viagemSelecionada)
+            navigationController?.pushViewController(detalheController, animated: true)
+        }
+    }
 }
 
 //MARK: - DataSource
@@ -54,6 +61,10 @@ extension ViewController: UITableViewDataSource {
             guard let cellOferta = tableView.dequeueReusableCell(withIdentifier: "OfertaTableViewCell") as? OfertaTableViewCell else {
                 fatalError("Erro ao criar OfertaTableViewCell")
             }
+            
+            cellOferta.delegate = self
+            cellOferta.configuraCelula(viewModel?.viagens)
+            
             return cellOferta
             
         default:
@@ -65,6 +76,18 @@ extension ViewController: UITableViewDataSource {
 //MARK: - Delegate
 
 extension ViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewModel = secaoDeViagens?[indexPath.section]
+        
+        switch viewModel?.tipo {
+        case .destaques, .internacionais:
+            let viagemSelecionada = viewModel?.viagens[indexPath.row]
+            irParaDestalhes(viagemSelecionada)
+        default:
+            break
+        }
+    }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
@@ -88,5 +111,13 @@ extension ViewController: UITableViewDelegate {
     // retornar o tamanho da celula na table view
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone ? 400 : 480
+    }
+}
+
+//MARK: - Oferta Delegate
+
+extension ViewController: OfertaTableViewCellDelegate {
+    func didSelectedView(_ viagem: Viagem?) {
+        irParaDestalhes(viagem)
     }
 }
